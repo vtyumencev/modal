@@ -1,0 +1,118 @@
+$SXModalColorLoadingBackground: #FFFFFF !default;
+$SXModalColorDialogBackground: #FFFFFF !default;
+
+$SXModalSizeBaseWidth: 800px !default;
+$SXModalSizeLargeWidth: 1000px !default;
+
+$SXModalMobileBreakPoint: 800px !default;
+
+body.has-active-sx-modal {
+    overflow: hidden;
+    padding-right: var(--scroll-bar-buffer);
+}
+
+.sx-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    body.admin-bar & {
+        top: var(--wp-admin--admin-bar--height);
+    }
+    &.shown {
+        display: block;
+    }
+    &__inner {
+        .sx-modal.scrollable & {
+            padding-right: var(--scroll-bar-buffer);
+        }
+        position: relative;
+        height: 100%;
+        display: flex;
+        background: rgba(0, 0, 0, 0);
+        //transition: 0.3s;
+        .sx-modal.loading &,
+        .sx-modal.visible & {
+            background: rgba(0, 0, 0, 0.5);
+        }
+    }
+    &.released &__inner {
+        overflow: auto;
+        padding-right: 0;
+    }
+}
+
+.sx-modal-loading {
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: auto;
+    opacity: 0;
+    transform: scale(0.98) rotateX(-10deg);
+    transition: 0.4s;
+    display: flex;
+    &__body {
+        padding: 0.5em 1.5em;
+        background: $SXModalColorLoadingBackground;
+    }
+    .sx-modal.loading & {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+.sx-modal-dialog {
+    position: relative;
+    margin: auto;
+    opacity: 0;
+    transform: scale(0.98) rotateX(-10deg);
+    @media (max-width: $SXModalMobileBreakPoint) {
+        transform: translateY(40px);
+        margin: auto 0 0 0;
+    }
+    transition: 0.4s;
+    width: 100%;
+    max-width: $SXModalSizeBaseWidth;
+    &--lg {
+        max-width: $SXModalSizeLargeWidth;
+    }
+    &__container {
+        margin: 3em 1em;
+        @media (max-width: $SXModalMobileBreakPoint) {
+            margin: 3em 0 0 0;
+        }
+    }
+    &__body {
+        padding: 1em;
+        background: $SXModalColorDialogBackground;
+        box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
+        @media (max-width: $SXModalMobileBreakPoint) {
+            border-radius: 1em 1em 0 0;
+        }
+    }
+    &__content {
+
+    }
+    .sx-modal.visible & {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    &__header {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0 1em 0 1em;
+    }
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+        margin: 1em 1em 0 1em;
+    }
+}
