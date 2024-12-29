@@ -33,12 +33,13 @@ body.has-active-sx-modal {
         height: 100%;
         display: flex;
         background: rgba(0, 0, 0, 0);
-        //transition: 0.3s;
+        transition: background-color 0.3s;
         .sx-modal.loading &,
         .sx-modal.visible & {
             background: rgba(0, 0, 0, 0.5);
         }
     }
+    &.hiding &__inner,
     &.released &__inner {
         overflow: auto;
         padding-right: 0;
@@ -74,6 +75,7 @@ body.has-active-sx-modal {
     margin: auto;
     opacity: 0;
     transform: scale(0.98) rotateX(-10deg);
+    will-change: transform;
     @media (max-width: $SXModalMobileBreakPoint) {
         transform: translateY(40px);
         margin: auto 0 0 0;

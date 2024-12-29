@@ -139,12 +139,6 @@ class Modal implements IModal {
         modalEl.classList.add('showing');
         modalEl.classList.add('shown');
 
-        if (modalEl.querySelector('.sx-modal-dialog').clientHeight > window.innerHeight) {
-            modalEl.classList.add('scrollable');
-        } else {
-            modalEl.classList.remove('scrollable');
-        }
-
         if (alteredOptions.onOpening) {
 
             let isFullFilled = false;
@@ -167,6 +161,12 @@ class Modal implements IModal {
             modalEl.classList.remove('loading');
         }
 
+        if (modalEl.querySelector('.sx-modal-dialog').clientHeight > window.innerHeight) {
+            modalEl.classList.add('scrollable');
+        } else {
+            modalEl.classList.remove('scrollable');
+        }
+
         void modalEl.offsetWidth;
 
         modalEl.classList.add('visible');
@@ -179,7 +179,7 @@ class Modal implements IModal {
 
         const events: BindEvent[] = [];
 
-        modalEl.querySelectorAll('.action-close').forEach((closeEl) => {
+        modalEl.querySelectorAll('.js-action-close').forEach((closeEl) => {
             events.push({
                 el: closeEl,
                 name: 'click',
@@ -249,10 +249,7 @@ class Modal implements IModal {
     }
 
     protected onDocumentClick(e: Event) {
-        if (! (e.target as HTMLElement).closest('.sx-modal')) {
-            return;
-        }
-        if ((e.target as HTMLElement).closest('.sx-modal-dialog__container')) {
+        if ((e.target as HTMLElement).closest('.js-sx-modal-dialog-body')) {
             return;
         }
 
