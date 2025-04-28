@@ -67,7 +67,8 @@ var Modal = class {
     this.connectedModules = [];
     this.modals = [];
     this.emitter = (0, import_nanoevents.createNanoEvents)();
-    this.updateScrollbarBuffer();
+    document.addEventListener("DOMContentLoaded", this.updateScrollbarBuffer);
+    window.addEventListener("resize", this.updateScrollbarBuffer);
   }
   on(event, callback) {
     return this.emitter.on(event, callback);

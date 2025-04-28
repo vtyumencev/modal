@@ -76,7 +76,8 @@ class Modal implements IModal {
 
     constructor() {
         this.emitter = createNanoEvents<Events>();
-        this.updateScrollbarBuffer();
+        document.addEventListener('DOMContentLoaded', this.updateScrollbarBuffer);
+        window.addEventListener('resize', this.updateScrollbarBuffer);
     }
 
     on<E extends keyof Events>(event: E, callback: Events[E]) {
@@ -85,7 +86,6 @@ class Modal implements IModal {
 
     // https://stackoverflow.com/questions/13382516/getting-scroll-bar-width-using-javascript
     protected updateScrollbarBuffer () {
-
         // Creating invisible container
         const outer = document.createElement('div');
         outer.style.visibility = 'hidden';

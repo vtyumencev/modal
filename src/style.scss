@@ -95,6 +95,7 @@ body.has-active-sx-modal {
     &__body {
         padding: 1em;
         background: $SXModalColorDialogBackground;
+        color: black;
         box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
         @media (max-width: $SXModalMobileBreakPoint) {
             border-radius: 1em 1em 0 0;
