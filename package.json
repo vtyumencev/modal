@@ -1,13 +1,15 @@
 {
   "name": "@stiumentsev/modal",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "style": "./dist/style.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup",
+    "build": "tsup && sass src/style.scss dist/style.css",
+    "build:css": "sass src/style.scss dist/style.css",
     "dev": "tsup --watch"
   },
   "author": "Slava Tiumentsev",
@@ -18,6 +20,7 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "tsup": "^8.0.2"
+    "tsup": "^8.0.2",
+    "sass": "^1.71.0"
   }
 }

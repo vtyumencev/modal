@@ -51,11 +51,11 @@ var __async = (__this, __arguments, generator) => {
 };
 
 // src/index.ts
-var src_exports = {};
-__export(src_exports, {
-  default: () => src_default
+var index_exports = {};
+__export(index_exports, {
+  default: () => index_default
 });
-module.exports = __toCommonJS(src_exports);
+module.exports = __toCommonJS(index_exports);
 var import_nanoevents = require("nanoevents");
 var Modal = class {
   constructor() {
@@ -306,5 +306,5 @@ var Modal = class {
     }
   }
 };
-var src_default = new Modal();
+var index_default = new Modal();
 //# sourceMappingURL=index.js.map

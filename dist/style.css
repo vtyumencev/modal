@@ -1,0 +1,118 @@
+body.has-active-sx-modal {
+  overflow: hidden;
+  padding-right: var(--scroll-bar-buffer);
+}
+
+.sx-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+}
+body.admin-bar .sx-modal {
+  top: var(--wp-admin--admin-bar--height);
+}
+.sx-modal.shown {
+  display: block;
+}
+.sx-modal.scrollable .sx-modal__inner {
+  padding-right: var(--scroll-bar-buffer);
+}
+.sx-modal__inner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  background: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s;
+}
+.sx-modal.loading .sx-modal__inner, .sx-modal.visible .sx-modal__inner {
+  background: rgba(0, 0, 0, 0.5);
+}
+.sx-modal.hiding .sx-modal__inner, .sx-modal.released .sx-modal__inner {
+  overflow: auto;
+  padding-right: 0;
+}
+
+.sx-modal-loading {
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: auto;
+  opacity: 0;
+  transform: scale(0.98) rotateX(-10deg);
+  transition: 0.4s;
+  display: flex;
+}
+.sx-modal-loading__body {
+  padding: 0.5em 1.5em;
+  background: #FFFFFF;
+}
+.sx-modal.loading .sx-modal-loading {
+  transform: none;
+  opacity: 1;
+}
+
+.sx-modal-dialog {
+  position: relative;
+  margin: auto;
+  opacity: 0;
+  transform: scale(0.98) rotateX(-10deg);
+  will-change: transform;
+}
+@media (max-width: 800px) {
+  .sx-modal-dialog {
+    transform: translateY(40px);
+    margin: auto 0 0 0;
+  }
+}
+.sx-modal-dialog {
+  transition: 0.4s;
+  width: 100%;
+  max-width: 800px;
+}
+.sx-modal-dialog--lg {
+  max-width: 1000px;
+}
+.sx-modal-dialog__container {
+  margin: 3em 1em;
+}
+@media (max-width: 800px) {
+  .sx-modal-dialog__container {
+    margin: 3em 0 0 0;
+  }
+}
+.sx-modal-dialog__body {
+  padding: 1em;
+  background: #FFFFFF;
+  color: black;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 800px) {
+  .sx-modal-dialog__body {
+    border-radius: 1em 1em 0 0;
+  }
+}
+.sx-modal.visible .sx-modal-dialog {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sx-modal-dialog__header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 1em 0 1em;
+}
+.sx-modal-dialog__buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1em 1em 0 1em;
+}
+
+/*# sourceMappingURL=style.css.map */

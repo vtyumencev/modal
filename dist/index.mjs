@@ -286,8 +286,8 @@ var Modal = class {
     }
   }
 };
-var src_default = new Modal();
+var index_default = new Modal();
 export {
-  src_default as default
+  index_default as default
 };
 //# sourceMappingURL=index.mjs.map
